@@ -104,8 +104,13 @@ func ProcessFile(log *logger.Logger, pFRequest *ProcessFileRequest) error {
 	// Add to upload queue
 	filesToUpload := file.GetUploadPaths()
 	for _, v := range filesToUpload {
-		if config.BASE_B2_FOLDER == "" {
-			fUploader.AddToQueue(v, fmt.Sprintf("stem-g%s/%s", pFRequest.Grade, filepath.Base(v)), file)
+		//if config.BASE_B2_FOLDER == "" {
+		//	fUploader.AddToQueue(v, fmt.Sprintf("stem-g%s/%s", pFRequest.Grade, filepath.Base(v)), file)
+		//} else {
+		//	fUploader.AddToQueue(v, fmt.Sprintf("%sstem-g%s/%s", config.BASE_B2_FOLDER, pFRequest.Grade, filepath.Base(v)), file)
+		//}
+		if pFRequest.FileType == PDFTYPE {
+			fUploader.AddToQueue(v, fmt.Sprintf("%sstem-g%s-pdfs/%s", config.BASE_B2_FOLDER, pFRequest.Grade, filepath.Base(v)), file)
 		} else {
 			fUploader.AddToQueue(v, fmt.Sprintf("%sstem-g%s/%s", config.BASE_B2_FOLDER, pFRequest.Grade, filepath.Base(v)), file)
 		}
