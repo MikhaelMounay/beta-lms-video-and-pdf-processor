@@ -86,7 +86,7 @@ func printWelcomeMsg() {
 	fmt.Println(dashedLine())
 	fmt.Println(dashedLineWithText("The Only Secure LMS You Need"))
 	fmt.Println(dashedLine())
-	fmt.Println(dashedLineWithText("Welcome to Beta LMS Video & PDF Processor! (v2.1)"))
+	fmt.Println(dashedLineWithText("Welcome to Beta LMS Video & PDF Processor! (v2.1.1)"))
 	fmt.Println(dashedLine())
 	fmt.Println(dashedLineWithText("Made with <3 by Transcendea Software"))
 	fmt.Println(dashedLine())
