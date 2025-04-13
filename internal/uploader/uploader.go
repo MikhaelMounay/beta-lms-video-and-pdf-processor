@@ -88,6 +88,10 @@ func (u *MinIOFileUploader) StartQueueUpload() {
 				u.Log.Logf("Error saving upload entry: %s\n", err.Error())
 			}
 		}()
+
+		if err := os.Remove(v.FilePath); err != nil {
+			u.Log.Logf("Error removing file %s: %s\n", v.FilePath, err.Error())
+		}
 	}
 }
 
